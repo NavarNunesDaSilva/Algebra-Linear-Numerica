@@ -1,0 +1,293 @@
+import random
+from PIL import Image
+import glob
+
+listaTeste = ['teste']
+
+listaTeste = [Image.open(file) for file in glob.glob(listaTeste.append('caminho-das-imagens-a-serem-comparadas'))]
+
+pessoaTreino = [Image.open(file) for file in glob.glob(pessoaTreino.append('caminho-da-pessoa-que-vai-ser-buscada'))]
+
+lista = listaTeste
+
+iClass = []
+iTest = []
+iTrain = []
+
+classe = float
+
+numero_classes = 5
+numero_imagens = 40
+
+def random_indexes(nClassTrain, totalClass, nImgTrain, totalImgClass):  #cria as variaveis aleatórias
+
+    iClass = nClassTrain
+    iTrain = nImgTrain
+
+    while (length(iClass) != nClassTrain):
+        iClass = [np.random.rand(1,1)]
+        iClass = unique(iClass)
+
+    while (length(iTrain) != nImgTrain):
+        iTrain = [np.random.rand(1,1)]
+        iTrain = unique(iTrain)
+
+        if (totalImgClass != iTrain):
+            iTest = totalImgClass
+
+
+
+files = len(lista)
+
+for i in range(0, files):  #cria as amostras de imagens
+    fileName = lista[i]
+
+    amostra = (listaTeste)
+    indexo = (files)
+    [a, b, c, d] = (fileName, '/(?P<class>\d+)-(?P<index>\d+)\.(?P<type>\w+)/', amostra, indexo)
+
+    if iClass == classe :
+        sampl = struct('amostra', classe, 'indexo', index,'path', path+'/'+fileName)
+        if find(iTrain == indexo):
+            pessoaTreino.append(sampl)
+        elif find(iTest == indexo):
+            listaTeste.append(sampl)
+
+
+
+def pca_dct_recognizer(trainSamples, testSamples):
+    brain = pca_dct_dct_train(trainSamples)
+    aceito = lista
+    rejeito = lista
+    for i in range  (0, len(testSamples)):
+        sampl = testSamples[i]
+        c = pca_dct_test(imread(sampl.path), brain)
+        if c == sampl.classe :
+            aceito.append(sampl)
+        else:
+            rejeito.append(sampl)
+
+
+
+
+
+def pca_dct_train(samples):
+    brain = tlist(["brain", "classe", "samples"], [], lista)
+    for i in range (0, numero_classes):
+        brain.classe[i] = iClass[i]
+        brain.samples[i] = lista
+
+
+    for i in range (0, len(samples)):
+        sampl = samples[i]
+        index0 = find(brain.classe==sampl.classe)
+        classe = brain.samples(indexo)
+        classe.append(imread(sampl.path))
+        brain.samples[indexo] = classe
+
+
+
+
+    compiledBrain = tlist(["brain", "classe", "sampl"], [], list)
+    for i in range (0, numero_imagens):
+        nClass = brain.classe[i]
+        nSamples = brain.samples(i)
+        A = zeros(Np*Cm,Ni)
+        k=1
+        for j in range (0, numero_imagens):
+            img = nSamples[j]
+            imgd = dct(img)
+            imgd[abs(imgd)<1]=0
+            imgd = dct(imgd, 1)
+            alpha = 0.8
+            imgr = (img + alpha*imgd)/(1+alpha)
+            A[0,k] = imgr
+            k = k+1
+
+
+
+        compiledBrain.classe[i] = nClass
+        compiledBrain.sampl[i] = pca_dct_compress(A,d)
+
+
+
+
+
+    return compiledBrain
+
+
+def pca_dct_test(imagem, brain):
+    nc = len(brain.classe)
+    for i in range (0, numero_classes):
+        c = brain.sampl(i)
+        y = imagem
+        diffs[i]  = pca_dct_diffImagem(imagem, c*y)
+
+
+
+    [j,k] = min(diffs)
+    classe = brain.classe(k)
+
+def pca_dct_compress(A, d):
+    U, S, V = np.linalg.svd(A, full_matrices=True)  # realiza o SDV em A
+    out = U*S
+
+
+
+def pca_dct_diffImagem(A,B):
+    return numpy.linalg.norm(A, B)  # normalização da matriz
+
+
+
+
+def usar_pca(trainSamples, testSamples):
+    test = usar_pca(trainSamples)
+    aceito = lista
+    rejeitado = lista
+    for i in range (0, length(testSamples)):
+        sampl = testSamples(i)
+        c = usar_pca(imread(sampl.path), test);
+        if c == sampl.classe :
+            aceito.append(sampl)
+        else:
+            rejeito.append(sampl)
+
+
+
+
+def usar_pca(samples):
+    test = tlist(["brain", "classe", "samples"], [], lista)
+    for i in range (0, numero_classes):
+        test_classe[i] = iClass[i]
+        test_samples[i] = lista
+
+    for i in range (0, length(samples)):
+        amostra = samples(i)
+        indexo = find(brain.classe==sampl.classe)
+        classe = brain.samples(indexo)
+        classe[(-1)+1] = imread(sampl.path)
+        test.samples[indexo] = classe
+
+
+    compiledBrain = tlist(["test", "class", "sampl"], [], list())
+
+    for i in range (0, numero_classes):
+        nClass = test.classe(i)
+        nSamples = test.samples(i)
+        A = zeros(Np*Cm,Ni)
+        k = 1
+        for j in range (0, numero_imagens):
+            img = nSamples
+            A[0,k] = img
+            k = k+1
+
+        compiledT.classe[i] = nClass
+        compiledTEST.sampl[i] = pca_2(A,d)
+
+
+    return compiledTEST
+
+
+def pca_test(imagem, test):
+    nc = leight(test.classe)
+    for i in range (0, numero_classes):
+        c = test.sampl(i)
+        y = imagem
+        dif[i]  = pca_dif(imagem, c*y)
+
+    [j,k] = min(diffs)
+    classe = test.classe(k)
+
+
+
+def pca_2(A, d):
+    U, S, V = np.linalg.svd(A, full_matrices=True)  #realiza o SDV em A
+    return U*S
+
+
+
+def pca_dif(A,B):
+    return numpy.linalg.norm(A, B) #normalização da matriz
+
+
+def bruteforce_recognizer(trainSamples, testSamples):
+    brain = bruteforce_train(trainSamples)
+    acepted = list()
+    rejected = list()
+    for i in range (0, len(numero_imagens)):
+        sampl = testSamples(i)
+        c = bruteforce_test(imread(sampl.path), brain)
+        if c == sampl.classe :
+            acepted.append(sampl)
+        else:
+            rejected.append(sampl)
+
+
+
+
+def bruteforce_train(samples):
+    brain = tlist(["brain", "class", "samples"], [], lista)
+    for i in range (0, numero_classes):
+        brain.classe[i] = iClass[i]
+        brain.samples[i] = lista
+
+
+
+    for i in range (0, numero_imagens):
+        sampl = samples[i]
+        index = find(brain.classe==sampl.classe)
+        classe = brain.samples[indexo]
+        classe.append(sampl.path)
+        brain.samples[indexo] = classe
+
+
+
+
+    return brain
+
+
+
+def bruteforce_test(imagem, brain):
+    nc = size(brain.classe, 1);
+    for i in range (0, numero_classes):
+        nSamples = brain.samples[i]
+        ni = size(nSamples)
+        for j in rande (0, numero_imagens):
+           sampl = nSamples[j]
+           diffs[i,j] = bruteforce_diffImagem(imagem, sampl)
+
+
+
+    [j,k] = min(diffs)
+    cIndex = k(1) #indice da classe
+    sIndex = k(2) #indice da imagem
+
+    classe = brain.classe(cIndex)
+    samples = brain.samples(cIndex)
+    sampl = samples(sIndex)
+
+
+
+def bruteforce_diffImagem(A,B):
+    return numpy.linalg.norm(A, B)  # normalização da matriz
+
+
+quantidade_testes = 3
+porcentagem_media = 0
+
+rejeitadas = lista
+
+
+
+[acepted, rejected] = pca_recognizer(trainSamples, testSamples)
+rejecteds = lstcat(rejecteds, rejected)
+acertos = len(acepted)
+n = len(testSamples)
+porcentagem = (acertos/n)*100
+porcentagemMedia = porcentagem + porcentagemMedia
+print ('\nImagens testadas: ', n)
+print ('\nAcertos: %i\n', acertos)
+print ('\nPorcentagem de acerto: \n\n\n', porcentagem)
+
+
+print ('Media: \n', (porcentagemMedia / qtdTestes))
