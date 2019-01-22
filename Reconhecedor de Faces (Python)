@@ -1,3 +1,11 @@
+'''
+Esse código é uma tentativa de traduzir o código presente abaixo em linguagem pyton. Ainda necessita de correções para o 
+funcionamento correto, e irá ser implementado gradualmente. 
+
+link: https://github.com/ingoncalves/face-recognition/tree/master/src
+'''
+
+
 import random
 from PIL import Image
 import glob
